@@ -24,6 +24,5 @@ impl DatabaseSettings {
 
 pub fn get_configuration() -> Result<Settings, config::ConfigError> {
     let builder = config::Config::builder().add_source(config::File::with_name("configuration"));
-    let settings = builder.build()?.try_deserialize::<Settings>();
-    settings
+    builder.build()?.try_deserialize::<Settings>()
 }
